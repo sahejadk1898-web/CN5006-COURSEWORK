@@ -1,0 +1,160 @@
+/* Global Layout */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f3f5f9;
+  color: #333;
+}
+
+/* NAVIGATION BAR */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200px 355px;         /* MORE SPACING */
+  background: #1f2a44;
+  color: white;
+}
+
+.brand {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.links {
+  display: flex;
+  gap: 30px;                  /* BIGGER GAP BETWEEN MENU ITEMS */
+}
+
+.links a {
+  color: #cfd6e6;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 16px;          /* MORE BUTTON-LIKE */
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+.links a.active,
+.links a:hover {
+  background: #4d8df0;
+  color: #fff;
+}
+
+/* MAIN PAGE CONTAINER */
+.container {
+  padding: 40px;                /* MORE SPACE AROUND CONTENT */
+  max-width: 1250px;
+  margin: auto;
+}
+
+/* CARDS (Sections) */
+.card {
+  background: #ffffff;
+  padding: 30px;                /* MORE INSIDE SPACE */
+  margin-bottom: 35px;          /* MORE SPACE BETWEEN CARDS */
+  border-radius: 14px;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+
+.card h2 {
+  margin-bottom: 25px;          /* BETTER TITLE SPACING */
+  font-size: 1.5rem;
+  color: #1f2a44;
+}
+
+/* FORM GRID */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;                    /* BIGGER GAP BETWEEN INPUTS */
+}
+
+label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+input, select {
+  margin-top: 8px;
+  padding: 12px 14px;           /* MORE HEIGHT */
+  border-radius: 8px;
+  border: 1px solid #cfd3da;
+  background: #f9fbff;
+  font-size: 1rem;
+}
+
+input:focus,
+select:focus {
+  border-color: #4d8df0;
+  outline: none;
+}
+
+/* BUTTONS */
+button {
+  padding: 14px 22px;           /* BIGGER BUTTON */
+  background: #1f2a44;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 12px;             /* SEPARATION FROM INPUTS */
+}
+
+button:hover {
+  background: #4d8df0;
+}
+
+/* INLINE INPUT ROWS */
+.inline-row {
+  display: flex;
+  gap: 18px;                   /* ADD SPACE BETWEEN FIELDS */
+  flex-wrap: wrap;
+  margin-bottom: 20px;         /* SPACE BELOW */
+}
+
+/* TABLE */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;      /* SPACE BETWEEN ROWS */
+}
+
+.table th {
+  background: #1f2a44;
+  color: white;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 8px 8px 0 0;
+}
+
+.table td {
+  background: #ffffff;
+  padding: 14px;
+  border-bottom: 1px solid #e3e6ea;
+  border-radius: 6px;
+}
+
+.table tr:hover td {
+  background: #f1f4ff;
+}
+
+/* HELP TEXT */
+.muted {
+  color: #777;
+  margin-top: 10px;
+  display: block;              /* Ensures it has spacing */
+}
+
+/* SUMMARY BOXES */
+.summary p {
+  background: #eef4ff;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+
