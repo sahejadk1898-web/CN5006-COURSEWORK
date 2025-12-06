@@ -1,32 +1,38 @@
-export default function FilterTopUnits() {
+import React, { useState } from "react";
+import axios from "axios";
+import "./AddProduct.css";
+
+function FilterTopUnits() {
+  const [limit, setLimit] = useState("");
+  const [results, setResults] = useState([]);
+
+  const fetchTop = async () => {
+    const res = await axios.get(`http://localhost:5000/top-units/${limit}`);
+    setResults(res.data);
+  };
+
   return (
-    <div>
-      <h2 className="page-title">📈 Top Units Sold</h2>
+    <div className="addpage-wrapper">
+      <div className="add-container">
+        <h2 className="add-title">🏆 Top Selling Products</h2>
+        <p className="add-subtitle">Enter how many top products you want</p>
 
-      <div className="form-card">
-        
-        <div className="form-grid-2">
-          <label>Select Season
-            <select>
-              <option>Winter</option>
-              <option>Summer</option>
-              <option>Spring</option>
-              <option>Autumn</option>
-            </select>
-          </label>
+        <input
+          type="number"
+          placeholder="Limit"
+          onChange={(e) => setLimit(e.target.value)}
+        />
 
-          <label>Min Units Sold
-            <input placeholder="e.g. 100" />
-          </label>
-        </div>
+        <button className="add-btn" onClick={fetchTop}>SHOW</button>
 
-        <button>SEARCH</button>
-      </div>
-
-      <div className="form-card">
-        <h3>Results</h3>
-        <p>No data yet</p>
+        <ul>
+          {results.map((item, i) => (
+            <li key={i}>{item.productName} – {item.unitsSold} units</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 }
+
+export default FilterTopUnits;

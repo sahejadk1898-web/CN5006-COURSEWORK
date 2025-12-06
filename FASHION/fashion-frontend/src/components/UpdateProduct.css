@@ -1,0 +1,113 @@
+/* Page Wrapper */
+.update-page-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* Card Container */
+.update-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 750px;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Title */
+.update-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Subtitle */
+.update-subtitle {
+  font-size: 16px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* Grid Layout */
+.update-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+/* Input Box */
+.update-input-box label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+}
+
+.update-input-box input,
+.update-input-box select {
+  width: 100%;
+  padding: 10px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-top: 5px;
+  transition: all 0.2s ease;
+}
+
+.update-input-box input:focus,
+.update-input-box select:focus {
+  border-color: #4a90e2;
+  box-shadow: 0px 0px 3px rgba(74, 144, 226, 0.6);
+}
+
+/* Update Button */
+.update-btn {
+  width: 100%;
+  padding: 12px;
+  background: #4a90e2;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.update-btn:hover {
+  background: #357ab8;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .update-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.update-form-grid {
+    display: grid;  
+    grid-template-columns: repeat(2,1fr) !important;
+    gap: 35px;  /* this creates space between the two input boxes*/
+    width: 100%;
+}

@@ -1,32 +1,38 @@
-export default function FilterByRating() {
+import React, { useState } from "react";
+import axios from "axios";
+import "./AddProduct.css";
+
+function FilterByRating() {
+  const [rating, setRating] = useState("");
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    const res = await axios.get(`http://localhost:5000/rating/${rating}`);
+    setData(res.data);
+  };
+
   return (
-    <div>
-      <h2 className="page-title">⭐ Filter By Rating</h2>
+    <div className="addpage-wrapper">
+      <div className="add-container">
+        <h2 className="add-title">⭐ Filter by Rating</h2>
+        <p className="add-subtitle">Show products above selected rating</p>
 
-      <div className="form-card">
-        
-        <div className="form-grid-2">
-          <label>Select Season
-            <select>
-              <option>Winter</option>
-              <option>Summer</option>
-              <option>Spring</option>
-              <option>Autumn</option>
-            </select>
-          </label>
+        <input
+          type="number"
+          placeholder="Enter rating (0–5)"
+          onChange={(e) => setRating(e.target.value)}
+        />
 
-          <label>Min Rating
-            <input placeholder="e.g. 4" />
-          </label>
-        </div>
+        <button className="add-btn" onClick={fetchData}>FILTER</button>
 
-        <button>FILTER</button>
-      </div>
-
-      <div className="form-card">
-        <h3>Results</h3>
-        <p>No data yet</p>
+        <ul>
+          {data.map((item, i) => (
+            <li key={i}>{item.productName} — {item.customerRating} ⭐</li>
+          ))}
+        </ul>
       </div>
     </div>
   );
 }
+
+export default FilterByRating;
