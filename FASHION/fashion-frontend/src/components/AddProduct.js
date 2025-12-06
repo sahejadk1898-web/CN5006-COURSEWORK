@@ -1,113 +1,73 @@
 // src/components/AddProduct.js
 import React, { useState } from "react";
-import api from "../api";
+import axios from "axios";
+import "./AddProduct.css";
 
-const initial = {
-  productCategory: "",
-  productName: "",
-  unitsSold: "",
-  returns: "",
-  revenue: "",
-  customerRating: "",
-  stockLevel: "",
-  season: "",
-  trendScore: ""
-};
+function AddProduct() {
+  const [formData, setFormData] = useState({
+    category: "",
+    productName: "",
+    season: "",
+    unitsSold: "",
+    returns: "",
+    revenue: "",
+    customerRating: "",
+    stockLevel: "",
+    trendScore: "",
+  });
 
-export default function AddProduct() {
-  const [form, setForm] = useState(initial);
-  const [loading, setLoading] = useState(false);
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const validate = () => {
-    if (!form.productName) return "Product Name is required";
-    if (!form.productCategory) return "Product Category is required";
-    if (!form.season) return "Season is required";
-    // numeric checks (optional)
-    return null;
-  };
-
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const err = validate();
-    if (err) return alert(err);
-
-    // convert numeric fields
-    const payload = {
-      ...form,
-      unitsSold: Number(form.unitsSold) || 0,
-      returns: Number(form.returns) || 0,
-      revenue: Number(form.revenue) || 0,
-      customerRating: Number(form.customerRating) || 0,
-      stockLevel: Number(form.stockLevel) || 0,
-      trendScore: Number(form.trendScore) || 0,
-    };
-
     try {
-      setLoading(true);
-      const res = await api.post("/addProduct", payload);
-      alert("Added: " + (res.data.product?.productName || "success"));
-      setForm(initial);
+      await axios.post("http://localhost:5000/add", formData);
+      alert("Product Added Successfully!");
     } catch (err) {
       console.error(err);
-      alert(err.response?.data?.error || "Failed to add product");
-    } finally { setLoading(false); }
+      alert("Error adding product.");
+    }
   };
 
   return (
-    <div className="card">
-      <h2>Add Product</h2>
-      <form onSubmit={handleSubmit} className="form-grid">
-        <label>Product Category
-          <input name="productCategory" value={form.productCategory} onChange={handleChange} />
-        </label>
+    <div className="addpage-wrapper">
+      <div className="add-container">
 
-        <label>Product Name*
-          <input name="productName" value={form.productName} onChange={handleChange} />
-        </label>
+        <h2 className="add-title">➕ Add New Product</h2>
+        <p className="add-subtitle">Fill in the product details below</p>
 
-        <label>Units Sold
-          <input name="unitsSold" type="number" value={form.unitsSold} onChange={handleChange} />
-        </label>
+        <form className="add-form" onSubmit={handleSubmit}>
+          
+          <div className="form-grid">
 
-        <label>Returns
-          <input name="returns" type="number" value={form.returns} onChange={handleChange} />
-        </label>
+            <input type="text" name="category" placeholder="Category" onChange={handleChange} />
+            <input type="text" name="productName" placeholder="Product Name" onChange={handleChange} />
 
-        <label>Revenue
-          <input name="revenue" type="number" value={form.revenue} onChange={handleChange} step="0.01"/>
-        </label>
+            <select name="season" onChange={handleChange}>
+              <option value="">Select Season</option>
+              <option>Summer</option>
+              <option>Winter</option>
+              <option>Autumn</option>
+              <option>Spring</option>
+            </select>
 
-        <label>Customer Rating
-          <input name="customerRating" type="number" min="0" max="5" value={form.customerRating} onChange={handleChange} step="0.1"/>
-        </label>
+            <input type="number" name="unitsSold" placeholder="Units Sold" onChange={handleChange} />
+            <input type="number" name="returns" placeholder="Returns" onChange={handleChange} />
+            <input type="number" name="revenue" placeholder="Revenue (£)" onChange={handleChange} />
+            <input type="number" name="customerRating" placeholder="Customer Rating (0–5)" onChange={handleChange} />
+            <input type="number" name="stockLevel" placeholder="Stock Level" onChange={handleChange} />
+            <input type="number" name="trendScore" placeholder="Trend Score (0–100)" onChange={handleChange} />
 
-        <label>Stock Level
-          <input name="stockLevel" type="number" value={form.stockLevel} onChange={handleChange} />
-        </label>
+          </div>
 
-        <label>Season
-          <select name="season" value={form.season} onChange={handleChange}>
-            <option value="">Select...</option>
-            <option>Spring</option>
-            <option>Summer</option>
-            <option>Autumn</option>
-            <option>Winter</option>
-          </select>
-        </label>
+          <button className="add-btn" type="submit">✔ ADD PRODUCT</button>
 
-        <label>Trend Score
-          <input name="trendScore" type="number" value={form.trendScore} onChange={handleChange} />
-        </label>
-
-        <div className="form-actions">
-          <button type="submit" disabled={loading}>{loading ? "Adding..." : "Add Product"}</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
+
+export default AddProduct;

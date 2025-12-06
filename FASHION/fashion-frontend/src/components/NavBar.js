@@ -1,22 +1,21 @@
-// src/components/NavBar.js
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./NavBar.css";
 
-const NavBar = () => {
+export default function NavBar() {
   return (
-    <nav className="nav">
-      <h1 className="brand">FashionShop Admin</h1>
-      <div className="links">
-  <NavLink to="/add">Add</NavLink>
-  <NavLink to="/update">Update</NavLink>
-  <NavLink to="/delete">Delete</NavLink>
-  <NavLink to="/summary">Season Summary</NavLink>
-  <NavLink to="/units">Top Units</NavLink>
-  <NavLink to="/rating">Filter by Rating</NavLink>
-</div>
+    <nav className="navbar">
+      <h2 className="brand">Fashion Dashboard</h2>
 
+      <div className="nav-buttons">
+        <Link to="/">Home</Link>
+        <Link to="/add">Add</Link>
+        <Link to="/update">Update</Link>
+        <Link to="/delete">Delete</Link>
+        <Link to="/summary">Summary</Link>
+        <Link to="/units">Top Units</Link>
+        <Link to="/rating">Rating</Link>
+      </div>
     </nav>
   );
-};
-
-export default NavBar;
+}

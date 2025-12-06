@@ -8,6 +8,7 @@ import DeleteProduct from "./components/DeleteProduct";
 import SeasonSummary from "./components/SeasonSummary";
 import FilterTopUnits from "./components/FilterTopUnits";
 import FilterByRating from "./components/FilterByRating";
+import HomePage from "./components/HomePage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <NavBar />
       <div className="container">
         <Routes>
-          <Route path="/" element={<Navigate to="/add" replace />} />
+         <Route path="/" element={<HomePage />} />
           <Route path="/add" element={<AddProduct />} />
           <Route path="/update" element={<UpdateProduct />} />
           <Route path="/delete" element={<DeleteProduct />} />

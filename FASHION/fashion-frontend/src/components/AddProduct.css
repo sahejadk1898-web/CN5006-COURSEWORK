@@ -1,0 +1,65 @@
+.addpage-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  margin-top: -20px;
+  padding-top: 40px;
+  background: linear-gradient(135deg, #5a00ff, #00a0ff);
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.add-container {
+  background: white;
+  width: 60%;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
+}
+
+.add-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.add-subtitle {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #666;
+  font-size: 14px;
+}
+
+.add-form input,
+.add-form select {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.add-btn {
+  width: 100%;
+  padding: 15px;
+  background: #4a00e0;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.add-btn:hover {
+  background: #3700b3;
+}

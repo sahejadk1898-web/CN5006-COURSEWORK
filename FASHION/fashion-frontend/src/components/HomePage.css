@@ -1,0 +1,81 @@
+/* ---- HERO SECTION ---- */
+.hero {
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+/* ---- FEATURES SECTION ---- */
+.features-section {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.section-subtitle {
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.feature-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+}
+
+.feature-icon {
+  font-size: 45px;
+  color: purple;
+  margin-bottom: 10px;
+}
+
+/* ---- WHY CHOOSE SECTION ---- */
+.why-section {
+  margin-top: 60px;
+  padding: 40px 20px;
+  background: #f7f7f7;
+  text-align: center;
+}
+
+.why-content {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+  padding-top: 20px;
+}
+
+.why-content ul {
+  list-style-type: "✔ ";
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
