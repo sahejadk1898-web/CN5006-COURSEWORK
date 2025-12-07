@@ -6,18 +6,21 @@ function SeasonSummary() {
 
   // --- Temporary Sample Data (Replace with backend later) ---
   useEffect(() => {
-    const sampleData = [
-      {season: "Summer", revenue: 12500, units: 380, rating: 4.7 },
-      { season: "Winter", revenue: 8400, units: 260, rating: 4.3 },
-      { season: "Autumn", revenue: 9500, units: 300, rating: 4.4 },
-      { season: "Spring", revenue: 7200, units: 210, rating: 4.1 },
+     // Placeholder data (clean & professional)
+  // Placeholder data (clean & professional)
+  const placeholderData = [
+    { season: "Summer", revenue: "—", units: "—", rating: "—" },
+    { season: "Winter", revenue: "—", units: "—", rating: "—" },
+    { season: "Autumn", revenue: "—", units: "—", rating: "—" },
+    { season: "Spring", revenue: "—", units: "—", rating: "—" },
+
     ];
-    setSummary(sampleData);
+    setSummary(placeholderData);
   }, []);
 
   return (
     <div className="summary-container">
-      <h2 className="summary-title">Season Summary</h2>
+      <h2 className="summary-title">📋Season Summary</h2>
 
       <div className="summary-card">
         <table className="summary-table">
@@ -30,12 +33,14 @@ function SeasonSummary() {
             </tr>
           </thead>
           <tbody>
-            {summary.map((item, index) => (
+            {/* ✅ USE THIS — no sampleData anymore */}
+            {summary.map((row, index) => (
+
               <tr key={index}>
-                <td>{item.season}</td>
-                <td>£{item.revenue}</td>
-                <td>{item.units}</td>
-                <td>{item.rating}</td>
+                <td>{row.season}</td>
+                <td>{row.revenue}</td>
+                <td>{row.units}</td>
+                <td>{row.rating}</td>
               </tr>
             ))}
           </tbody>

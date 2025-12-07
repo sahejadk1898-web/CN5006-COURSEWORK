@@ -26,7 +26,7 @@ function UpdateProduct() {
     <div className="update-page-wrapper">
       <div className="update-card">
 
-        <h2 className="update-title">Update Product</h2>
+        <h2 className="update-title">✏️Update Product</h2>
         <p className="update-subtitle">
           Modify product details in your fashion inventory
         </p>
